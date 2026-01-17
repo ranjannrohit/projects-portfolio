@@ -1,0 +1,224 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(circle at top, #14192f, #0b0f17 70%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ICONS ================= */
+.icon-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.icon {
+    position: absolute;
+    width: 64px;
+    opacity: 0.35;
+    filter: invert(1) drop-shadow(0 0 20px rgba(255,0,128,0.4));
+    animation: floatUp linear infinite;
+}
+
+.slow { animation-duration: 45s; }
+.medium { animation-duration: 30s; }
+.fast { animation-duration: 22s; }
+
+.icon:nth-child(1) { left: 10%; }
+.icon:nth-child(2) { left: 30%; }
+.icon:nth-child(3) { left: 50%; }
+.icon:nth-child(4) { left: 70%; }
+.icon:nth-child(5) { left: 90%; }
+
+@keyframes floatUp {
+    from { transform: translateY(110vh) rotate(0deg); }
+    to { transform: translateY(-120px) rotate(360deg); }
+}
+
+/* ================= HERO ================= */
+.hero {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* LIVE GLOW NAME */
+.hero-name {
+    font-size: clamp(72px, 12vw, 140px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: #fff;
+    animation: baseGlow 3s ease-in-out infinite;
+}
+
+/* BASE GLOW (always alive) */
+@keyframes baseGlow {
+    0% {
+        text-shadow: 0 0 25px rgba(255,0,128,0.5),
+                     0 0 60px rgba(138,43,226,0.4);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255,0,128,0.8),
+                     0 0 90px rgba(138,43,226,0.6);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(255,0,128,0.5),
+                     0 0 60px rgba(138,43,226,0.4);
+    }
+}
+
+/* TITLES */
+.hero-title {
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.hero-title::after {
+    content: "";
+    width: 70%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff0080, #8a2be2);
+    display: block;
+    margin: 16px auto;
+}
+
+.hero-subtitle {
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: #ff8fcf;
+    text-transform: uppercase;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.6);
+    border-radius: 20px;
+}
+
+.scroll-indicator::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ff8fcf;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    animation: scrollMove 1.6s infinite;
+}
+
+@keyframes scrollMove {
+    0% { opacity: 0; top: 8px; }
+    50% { opacity: 1; }
+    100% { opacity: 0; top: 24px; }
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 20px;
+    display: grid;
+    gap: 32px;
+}
+
+/* PROJECT CARD – NO MORE DULL */
+.project-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.12),
+        rgba(255,255,255,0.04)
+    );
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 18px;
+    padding: 32px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 0 0 1px rgba(255,0,128,0.4),
+        0 30px 80px rgba(0,0,0,0.6);
+}
+
+.project-card h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #e0e0e0;
+    margin-bottom: 12px;
+}
+
+.project-card span {
+    color: #ff8fcf;
+    display: block;
+    margin-bottom: 16px;
+}
+
+/* LINKS FIXED */
+.project-card a {
+    color: #ff0080;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+.project-card a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff0080, #8a2be2);
+    transition: width 0.3s ease;
+}
+
+.project-card a:hover::after {
+    width: 100%;
+}
+/* ================= FOOTER ================= */
+.site-footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(
+        to top,
+        rgba(11, 15, 23, 0.95),
+        rgba(11, 15, 23, 0.6)
+    );
+}

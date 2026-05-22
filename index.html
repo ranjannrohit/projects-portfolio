@@ -1,54 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohit Ranjan | Projects</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rohit Ranjan | Projects Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#07111f;
+color:white;
+overflow-x:hidden;
+}
+
+:root{
+--blue:#3B82F6;
+--purple:#8B5CF6;
+--card:#111827;
+}
+
+.bg{
+position:fixed;
+inset:0;
+z-index:-1;
+overflow:hidden;
+}
+
+.blob{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(90px);
+opacity:.15;
+animation:float 8s infinite ease-in-out;
+}
+
+.b1{
+background:#3B82F6;
+top:-150px;
+right:-100px;
+}
+
+.b2{
+background:#8B5CF6;
+left:-100px;
+bottom:-120px;
+animation-delay:3s;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-40px)
+}
+}
+
+nav{
+padding:24px 8%;
+display:flex;
+justify-content:space-between;
+backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+z-index:10;
+}
+
+.logo{
+font-weight:800;
+font-size:22px;
+background:linear-gradient(90deg,var(--blue),var(--purple));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.hero-left{
+flex:1;
+}
+
+.badge{
+display:inline-block;
+padding:10px 16px;
+border-radius:50px;
+background:rgba(59,130,246,.1);
+border:1px solid rgba(59,130,246,.3);
+margin-bottom:24px;
+}
+
+h1{
+font-size:72px;
+line-height:1;
+margin-bottom:18px;
+}
+
+.gradient{
+background:linear-gradient(90deg,#3B82F6,#8B5CF6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.roles{
+font-size:24px;
+color:#cbd5e1;
+margin-bottom:24px;
+}
+
+.desc{
+max-width:620px;
+line-height:1.8;
+color:#cbd5e1;
+margin-bottom:32px;
+}
+
+.btns{
+display:flex;
+gap:16px;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+}
+
+.primary{
+background:linear-gradient(90deg,var(--blue),var(--purple));
+color:white;
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.15);
+color:white;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-top:60px;
+}
+
+.card{
+background:rgba(17,24,39,.8);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.06);
+padding:22px;
+border-radius:18px;
+}
+
+.num{
+font-size:32px;
+font-weight:800;
+color:#60a5fa;
+}
+
+.projects{
+padding:120px 8%;
+}
+
+.section-title{
+font-size:46px;
+margin-bottom:60px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+}
+
+.project{
+background:rgba(17,24,39,.8);
+border-radius:22px;
+padding:24px;
+border:1px solid rgba(255,255,255,.06);
+transition:.35s;
+}
+
+.project:hover{
+transform:translateY(-8px);
+border-color:#3B82F6;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+margin-bottom:16px;
+}
+
+.tag{
+padding:6px 12px;
+background:rgba(59,130,246,.12);
+border-radius:50px;
+font-size:12px;
+color:#60a5fa;
+}
+
+.project h3{
+margin-bottom:12px;
+font-size:22px;
+}
+
+.project p{
+color:#cbd5e1;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+.tech{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.tech span{
+padding:5px 10px;
+background:#1e293b;
+border-radius:20px;
+font-size:12px;
+}
+
+.links{
+display:flex;
+gap:12px;
+}
+
+footer{
+padding:80px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
+margin-top:100px;
+}
+
+@media(max-width:900px){
+
+h1{
+font-size:52px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+</style>
+
 </head>
+
 <body>
 
-<!-- BACKGROUND ICONS -->
-<div class="icon-background">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" class="icon slow">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" class="icon medium">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" class="icon fast">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" class="icon slow">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" class="icon medium">
+<div class="bg">
+<div class="blob b1"></div>
+<div class="blob b2"></div>
 </div>
 
-<header class="hero">
-    <h1 class="hero-name">Rohit Ranjan</h1>
-    <h2 class="hero-title">PROJECTS</h2>
-    <p class="hero-subtitle">Explore Projects</p>
-    <div class="scroll-indicator"></div>
-</header>
+<nav>
+<div class="logo">RR</div>
+</nav>
 
-<section class="projects">
-    <div class="project-card">
-        <h2>AI Disease Prediction System</h2>
-        <p>Predicts diseases from symptoms using ML models.</p>
-        <span>Python • Pandas • Scikit-learn • Flask</span>
-        <a href="#" target="_blank">View Project →</a>
-    </div>
+<section class="hero">
 
-    <div class="project-card">
-        <h2>AI Resume Evaluator</h2>
-        <p>NLP-based resume vs job description matching.</p>
-        <span>Python • NLP • Flask</span>
-        <a href="#" target="_blank">View Project →</a>
-    </div>
+<div class="hero-left">
 
-    <div class="project-card">
-        <h2>Power BI Sales Dashboard</h2>
-        <p>Interactive dashboard for sales insights.</p>
-        <span>Power BI • Excel</span>
-        <a href="#" target="_blank">View Dashboard →</a>
-    </div>
+<div class="badge">
+🚀 Open to Data Analyst / BI Roles
+</div>
+
+<h1>
+Rohit <span class="gradient">Ranjan</span>
+</h1>
+
+<div class="roles">
+Data Analyst • Business Intelligence • Power BI • SQL • Python
+</div>
+
+<div class="desc">
+Building analytics products, dashboards and AI-powered solutions transforming raw datasets into business insights.
+</div>
+
+<div class="btns">
+
+<a class="btn primary" href="#projects">
+Explore Projects
+</a>
+
+<a class="btn secondary" href="#">
+GitHub
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="card">
+<div class="num">5+</div>
+Projects
+</div>
+
+<div class="card">
+<div class="num">3</div>
+Internships
+</div>
+
+<div class="card">
+<div class="num">100+</div>
+Users
+</div>
+
+<div class="card">
+<div class="num">2L+</div>
+Records
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<script src="script.js"></script><footer class="site-footer">
-    © <span id="year"></span> Rohit Ranjan. All rights reserved.
+<section class="projects" id="projects">
+
+<div class="section-title">
+Featured Projects
+</div>
+
+<div class="grid">
+
+<div class="project">
+
+<div class="top">
+<div class="tag">Analytics</div>
+</div>
+
+<h3>InsightFlow</h3>
+
+<p>
+AI powered analytics agent generating EDA reports, insights and SQL outputs automatically.
+</p>
+
+<div class="tech">
+<span>Python</span>
+<span>FastAPI</span>
+<span>SQL</span>
+<span>NLP</span>
+</div>
+
+<div class="links">
+<a class="btn primary">GitHub</a>
+<a class="btn secondary">Live</a>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="tag">Healthcare</div>
+
+<h3>HealthTrackk</h3>
+
+<p>
+Healthcare analytics platform with AI prediction and wellness modules.
+</p>
+
+<div class="tech">
+<span>Flask</span>
+<span>SQLite</span>
+<span>Gemini</span>
+</div>
+
+</div>
+
+<div class="project">
+
+<div class="tag">Power BI</div>
+
+<h3>Global Health Expenditure</h3>
+
+<p>
+190+ countries analytics dashboard using SQL, Power BI and Python.
+</p>
+
+<div class="tech">
+<span>Power BI</span>
+<span>SQL</span>
+<span>Python</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>Rohit Ranjan</h2>
+
+<p>
+Data Analyst | Business Intelligence
+</p>
+
+<br>
+
+© Rohit Ranjan — All Rights Reserved
+
 </footer>
 
 </body>
